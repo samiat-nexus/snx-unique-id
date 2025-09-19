@@ -2,32 +2,32 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Samiat Nexus Test Page</title>
+  <title>Unique ID Generator</title>
   <style>
-    body {
-      font-family: Arial, sans-serif;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-      margin: 0;
-      background: linear-gradient(135deg, #4f46e5, #9333ea);
-      color: white;
-      text-align: center;
-    }
-    .box {
-      background: rgba(255,255,255,0.1);
-      padding: 30px;
-      border-radius: 15px;
-      box-shadow: 0 8px 20px rgba(0,0,0,0.3);
-    }
+    body { font-family: Arial, sans-serif; background: #f4f4f4; text-align: center; padding: 50px; }
+    .box { background: #fff; padding: 30px; border-radius: 10px; display: inline-block; box-shadow: 0 4px 10px rgba(0,0,0,0.1); }
+    button { padding: 10px 20px; margin: 10px; border: none; border-radius: 5px; font-size: 16px; cursor: pointer; }
+    .free { background: #3498db; color: white; }
+    .std { background: #f39c12; color: white; }
+    .prm { background: #27ae60; color: white; }
+    #output { margin-top: 20px; font-size: 18px; font-weight: bold; color: #2c3e50; }
   </style>
 </head>
 <body>
   <div class="box">
-    <h1>✅ Samiat Nexus is Live!</h1>
-    <p>If you see this page, your GitHub → Vercel connection works perfectly 🎉</p>
+    <h2>Generate Unique ID</h2>
+    <button class="free" onclick="generateID('FREE')">Free Plan</button>
+    <button class="std" onclick="generateID('STD')">Standard Plan</button>
+    <button class="prm" onclick="generateID('PRM')">Premium Plan</button>
+    <div id="output"></div>
   </div>
+
+  <script>
+    function generateID(plan) {
+      let random = Math.random().toString(36).substring(2, 8).toUpperCase();
+      let id = `SNX-${plan}-${random}`;
+      document.getElementById("output").innerText = "Your Unique ID: " + id;
+    }
+  </script>
 </body>
 </html>
